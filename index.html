@@ -5,40 +5,49 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Pokémon Memory Game</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body class="light">
+
+  <h1 class="title">Pokémon Memory Game</h1>
+
+  <!-- Controls -->
+  <div id="controls">
+    <div id="difficulty">
+      <button class="diff-btn active" id="easy">Easy</button>
+      <button class="diff-btn" id="medium">Medium</button>
+      <button class="diff-btn" id="hard">Hard</button>
+    </div>
+    <div id="action-buttons">
+      <button id="start-btn">Start</button>
+      <button id="reset-btn">Reset</button>
+      <button id="powerup-btn">Power Up</button>
+    </div>
+    <div id="theme-toggle">
+      <button id="theme-btn">Dark Mode</button>
+    </div>
+  </div>
+
+  <!-- Status -->
+  <div id="status">
+    <span>Clicks: <span id="clicks">0</span></span>
+    <span>Pairs Left: <span id="pairs-left">0</span></span>
+    <span>Matched: <span id="matched">0</span></span>
+    <span>Total Pairs: <span id="total-pairs">0</span></span>
+    <span>Time: <span id="timer">0</span>s</span>
+  </div>
+
+  <!-- Message -->
+  <div id="message"></div>
+
+  <!-- Game Grid -->
+  <div id="game_grid"></div>
+
   <!-- import jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="index.js"></script>
-</head>
-
-<body>
-  <div id="game_grid">
-    <div class="card">
-      <img id="img1" class="front_face" src="001.png" alt="">
-      <img class="back_face" src="back.webp" alt="">
-    </div>
-    <div class="card">
-      <img id="img2" class="front_face" src="002.png" alt="">
-      <img class="back_face" src="back.webp" alt="">
-    </div>
-    <div class="card">
-      <img id="img3" class="front_face" src="003.png" alt="">
-      <img class="back_face" src="back.webp" alt="">
-    </div>
-    <div class="card">
-      <img id="img4" class="front_face" src="001.png" alt="">
-      <img class="back_face" src="back.webp" alt="">
-    </div>
-    <div class="card">
-      <img id="img5" class="front_face" src="002.png" alt="">
-      <img class="back_face" src="back.webp" alt="">
-    </div>
-    <div class="card">
-      <img id="img6" class="front_face" src="003.png" alt="">
-      <img class="back_face" src="back.webp" alt="">
-    </div>
-  </div>
 </body>
-
 </html>

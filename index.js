@@ -53,7 +53,6 @@ function resetGameState() {
   matchedPairs = 0;
   gameStarted = false;
   $("#message").text("");
-  // Completely destroy and recreate the grid
   $("#game_grid").replaceWith('<div id="game_grid"></div>');
 }
 
@@ -68,7 +67,6 @@ async function buildGrid() {
   updateStatus();
   $("#message").text("Loading Pokemon...");
   
-  // Disable start and reset while loading
   $("#start-btn").prop("disabled", true);
   $("#reset-btn").prop("disabled", true);
 
@@ -77,7 +75,6 @@ async function buildGrid() {
 
   $("#message").text("");
   
-  // Re-enable buttons after loading
   $("#start-btn").prop("disabled", false);
   $("#reset-btn").prop("disabled", false);
 
@@ -94,7 +91,6 @@ async function buildGrid() {
   attachCardListeners();
 }
 
-// Attach click listeners to cards
 function attachCardListeners() {
   $("#game_grid").off("click", ".card");
   $("#game_grid").on("click", ".card", function () {
@@ -139,7 +135,6 @@ function checkMatch() {
   }
 }
 
-// Reset after each turn
 function resetTurn() {
   firstCard = undefined;
   secondCard = undefined;
@@ -184,28 +179,24 @@ function loseGame() {
   $(".card:not(.matched)").addClass("flip");
 }
 
-// Start button
 $("#start-btn").on("click", async function () {
   await buildGrid();
   gameStarted = true;
   startTimer();
 });
 
-// Reset button
 $("#reset-btn").on("click", async function () {
   await buildGrid();
   gameStarted = true;
   startTimer();
 });
 
-// Difficulty buttons
 $(".diff-btn").on("click", function () {
   $(".diff-btn").removeClass("active");
   $(this).addClass("active");
   difficulty = $(this).attr("id");
 });
 
-// Theme toggle
 $("#theme-btn").on("click", function () {
   $("body").toggleClass("light dark");
   if ($("body").hasClass("dark")) {
@@ -215,7 +206,7 @@ $("#theme-btn").on("click", function () {
   }
 });
 
-// Power up - show all cards for 3 seconds
+// Power up 
 $("#powerup-btn").on("click", function () {
   if (!gameStarted) return;
   clearInterval(timerInterval);
@@ -231,7 +222,6 @@ $("#powerup-btn").on("click", function () {
   }, 3000);
 });
 
-// On page load
 $(document).ready(async function () {
   await fetchAllPokemon();
   updateStatus();
